@@ -3,13 +3,13 @@
 elgg.provide('elgg.pleio_issues');
 
 elgg.pleio_issues.init = function() {
-    if ($('#pleio-issues').length == 0) {
+    if ($('#pleio-issues-data').length == 0) {
         return true;
     }
 
     $.getJSON(elgg.get_site_url() + 'issues/list', function(issues) {
         if (issues.length == 0) {
-           $('#pleio-issues').html(elgg.echo('pleio_issues:noissues'));
+           $('#pleio-issues-data').html(elgg.echo('pleio_issues:noissues'));
         }
 
         html = '<table id=\'pleio-issues\'>';
@@ -39,7 +39,7 @@ elgg.pleio_issues.init = function() {
         });
 
         html += '</table>';
-        $('#pleio-issues').html(html);
+        $('#pleio-issues-data').html(html);
     });
 }
 
